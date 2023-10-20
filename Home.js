@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import './Home.css'
+import React, { useEffect, useState } from 'react';
+import './Home.css';
 
 function Home() {
-    const [city,setCity] = useState('Nagpur');
+    const [city,setCity] = useState('Pune');
     const [temperature, setTemperature] = useState(0)
     const [message, setMessage] = useState('')
     
     async function loadweatherInfo(){
         try{
-            const response = await axios.get('https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f652964084c552e8c0492237a3fabd9c')
+            const response = await axios.get('https://api.openweathermap.org/data/2.5/weather?q=city&appid=f652964084c552e8c0492237a3fabd9c')
 
             setTemperature((response.data.main.temp -273).toFixed(2))
-            setMessage('city Found')
+            setMessage('✅ Data Fetched sucessfully')
         }
         catch(err){
            setTemperature(0)
@@ -37,7 +37,7 @@ function Home() {
                     setCity(e.target.value)
                 }}
             />
-              <p>{message}</p>
+              <p className='message-text'>{message}</p>
 
             <h1 className='temperature-text'>Temperature: {temperature} °C</h1>
           
