@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Home2 from './views/Home2/Home'
+import Weather from './views/WeatherApp/Weather';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
 root.render(
-  <>
-    < Home2 />
-  </>
+    <div className='container'>
+    <Weather />
+    </div>
 );
 
